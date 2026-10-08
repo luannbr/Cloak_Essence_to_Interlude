@@ -1,0 +1,68 @@
+id,design,name,icon_src,icon_name
+9400,0,Light Dragon's Cloak,nobless_cloak_i00,cloak_00
+9401,1,Golden Mantle,cloak_noblesse2_i00,cloak_01
+9402,2,Gran Kain's Shroud,BranchSys2__Icon__7anni_cloack_i02,cloak_02
+9403,3,Shadow Mantle,cloak_warrior,cloak_03
+9404,4,Fafurion Mantle,cloak_fafurion,cloak_04
+9405,5,Lindvior Mantle,cloak_lindvior,cloak_05
+9406,6,Valakas Mantle,cloak_valakas,cloak_06
+9407,7,Dark Dragon's Radiant Cloak,cloak_antaras,cloak_07
+9408,8,Dark Star - Heavenly Cloak,BranchSys3__icon1__g_pl_cape,cloak_08
+9409,9,Crimson Noblesse Mantle,dethrone_cloak,cloak_09
+9410,cloth,Festival's Cloak - Pitch Black,ALL:BranchSys2__Icon__7anni_cloack_i00,cloak_10
+9411,cloth,Festival's Cloak - Blood Red,ALL:BranchSys2__Icon__7anni_cloack_i01,cloak_11
+9412,cloth,Festival's Cloak - Pearl White,ALL:BranchSys2__Icon__7anni_cloack_i02,cloak_12
+9413,cloth,Zaken's Cloak,ALL:BranchSys2__Icon__br_zaken_cloak_i00,cloak_13
+9414,cloth,Freya's Cloak,ALL:BranchSys2__Icon__br_freya_cloak_i00,cloak_14
+9415,cloth,Frintezza's Cloak,ALL:BranchSys2__Icon__br_frintessa_cloak_i00,cloak_15
+9416,cloth,Halloween Cloak,ALL:BranchSys3__Icon__g_halloween_cloack_i00,cloak_16
+9417,cloth,Santa Girl's Cloak,ALL:BranchSys3__icon__g_christmas_cloak,cloak_17
+9418,cloth,Russian Commemorative Cloak,ALL:BranchSys3__icon1__g_cloak_anniversary,cloak_18
+9419,cloth,Polish Cloak,ALL:BranchSys3__icon1__g_pl_cape,cloak_19
+9420,cloth,Cloak of Light for the Chosen,ALL:icon__amor_goodness_cloak,cloak_20
+9421,cloth,Cloak of Darkness for the Chosen,ALL:icon__amor_evilness_cloak,cloak_21
+9422,cloth,Elmoreden Cloak,ALL:BranchIcon__icon__g_bm_elmoreden_cloak_normal,cloak_22
+9423,cloth,Aden Cloak,ALL:BranchIcon__icon__g_bm_aden_cloak_normal,cloak_23
+9424,cloth,Elmore Cloak,ALL:BranchIcon__icon__g_bm_elmore_cloak_normal,cloak_24
+9425,cloth,Ferios Cloak,ALL:BranchIcon__icon__g_bm_perios_cloak_normal,cloak_25
+9426,cloth,Legendary Elmoreden Cloak,ALL:BranchIcon__icon__g_bm_elmoreden_cloak_normal,cloak_26
+9427,cloth,Legendary Aden Cloak,ALL:BranchIcon__icon__g_bm_aden_cloak_normal,cloak_27
+9428,cloth,Legendary Elmore Cloak,ALL:BranchIcon__icon__g_bm_elmore_cloak_normal,cloak_28
+9429,cloth,Legendary Ferios Cloak,ALL:BranchIcon__icon__g_bm_perios_cloak_normal,cloak_29
+9430,cloth,Abelius' Cloak,ALL:icon__vesper_cloack_i00,cloak_30
+9431,cloth,Sapyros' Cloak,ALL:icon__vesper_cloack_i00,cloak_31
+9432,cloth,Ashagen's Cloak,ALL:icon__vesper_cloack_i00,cloak_32
+9433,cloth,Cranigg's Cloak,ALL:icon__vesper_cloack_i00,cloak_33
+9434,cloth,Soltkreig's Cloak,ALL:icon__vesper_cloack_i00,cloak_34
+9435,cloth,Naviarope's Cloak,ALL:icon__vesper_cloack_i00,cloak_35
+9436,cloth,Leister's Cloak,ALL:icon__vesper_cloack_i00,cloak_36
+9437,cloth,Lakcis' Cloak,ALL:icon__vesper_cloack_i00,cloak_37
+9438,cloth,Hero's Cloak,ALL:icon__vesper_cloack_i00,cloak_38
+9439,cloth,Cloak of Glory,ALL:icon__vesper_cloack_i00,cloak_39
+9440,cloth,Clan Cloak - Standard,ALL:icon__vesper_cloack_i00,cloak_40
+9441,cloth,Clan Cloak - Clan Hall (Auction),ALL:icon__vesper_cloack_i00,cloak_41
+9442,cloth,Clan Cloak - Castle,ALL:icon__vesper_cloack_i00,cloak_42
+9443,cloth,Exalted Cloak,ALL:icon__cloak_noblesse2_i00,cloak_43
+9444,cloth,Clan Cloak - War Lv. 1,ALL:icon__alliance_cloak_pvp01,cloak_44
+9445,cloth,Clan Cloak - War Lv. 2,ALL:icon__alliance_cloak_pvp02,cloak_45
+9446,cloth,Clan Cloak - War Lv. 3,ALL:icon__alliance_cloak_pvp03,cloak_46
+9447,cloth,Clan Cloak - War Lv. 4,ALL:icon__alliance_cloak_pvp04,cloak_47
+9448,cloth,Clan Cloak - Growth Lv. 1,ALL:icon__vesper_cloack_i00,cloak_48
+9449,cloth,Clan Cloak - Growth Lv. 2,ALL:icon__vesper_cloack_i00,cloak_49
+9450,cloth,Clan Cloak - Growth Lv. 3,ALL:icon__vesper_cloack_i00,cloak_50
+9451,cloth,Clan Cloak - Growth Lv. 4,ALL:icon__vesper_cloack_i00,cloak_51
+9452,cloth,Clan Cloak - Combat Lv. 1,ALL:icon__alliance_cloak_pve01,cloak_52
+9453,cloth,Clan Cloak - Combat Lv. 2,ALL:icon__alliance_cloak_pve02,cloak_53
+9454,cloth,Clan Cloak - Combat Lv. 3,ALL:icon__alliance_cloak_pve03,cloak_54
+9455,cloth,Clan Cloak - Combat Lv. 4,ALL:icon__alliance_cloak_pve04,cloak_55
+9456,cloth,Clan Cloak - Economy Lv. 1,ALL:icon__vesper_cloack_i00,cloak_56
+9457,cloth,Clan Cloak - Economy Lv. 2,ALL:icon__vesper_cloack_i00,cloak_57
+9458,cloth,Clan Cloak - Economy Lv. 3,ALL:icon__vesper_cloack_i00,cloak_58
+9459,cloth,Clan Cloak - Economy Lv. 4,ALL:icon__vesper_cloack_i00,cloak_59
+9460,cloth,Cloak of Conquest,ALL:icon__cloak_noblesse2_i00,cloak_60
+9461,wing,Valakas' Wings,ALL:BranchSys3__icon1__g_agathion_hussar_pl,cloak_61
+9462,wing,Death Knight's Cloak R99,ALL:icon__etc_ertheia2,cloak_62
+9463,wing,Death Knight's Cloak R110,ALL:icon__etc_ertheia2,cloak_63
+9464,wing,Death Knight's Ranker Mantle,feud_lord_cloak_i00,cloak_64
+9465,wing,Woeful Sword Eigis's Cloak,ALL:icon__cloak_noblesse2_i00,cloak_65
+9466,wing,Light Dragon's Cloak Imbued With Dwarven Magic,nobless_cloak_i00,cloak_66

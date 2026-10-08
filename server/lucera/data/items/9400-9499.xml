@@ -1,0 +1,742 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE list SYSTEM "item.dtd">
+
+<list>
+    <armor id="9400" name="Light Dragon's Cloak">
+        <!-- [cloak_9400] -->
+        <set name="crystal_type" value="NONE"/>
+        <set name="icon" value="cloakicons.cloak_00"/>
+        <set name="price" value="10000"/>
+        <set name="type" value="NONE"/>
+        <set name="weight" value="100"/>
+        <equip>
+            <slot id="BACK"/>
+        </equip>
+    </armor>
+    <armor id="9401" name="Golden Mantle">
+        <!-- [cloak_9401] -->
+        <set name="crystal_type" value="NONE"/>
+        <set name="icon" value="cloakicons.cloak_01"/>
+        <set name="price" value="10000"/>
+        <set name="type" value="NONE"/>
+        <set name="weight" value="100"/>
+        <equip>
+            <slot id="BACK"/>
+        </equip>
+    </armor>
+    <armor id="9402" name="Gran Kain's Shroud">
+        <!-- [cloak_9402] -->
+        <set name="crystal_type" value="NONE"/>
+        <set name="icon" value="cloakicons.cloak_02"/>
+        <set name="price" value="10000"/>
+        <set name="type" value="NONE"/>
+        <set name="weight" value="100"/>
+        <equip>
+            <slot id="BACK"/>
+        </equip>
+    </armor>
+    <armor id="9403" name="Shadow Mantle">
+        <!-- [cloak_9403] -->
+        <set name="crystal_type" value="NONE"/>
+        <set name="icon" value="cloakicons.cloak_03"/>
+        <set name="price" value="10000"/>
+        <set name="type" value="NONE"/>
+        <set name="weight" value="100"/>
+        <equip>
+            <slot id="BACK"/>
+        </equip>
+    </armor>
+    <armor id="9404" name="Fafurion Mantle">
+        <!-- [cloak_9404] -->
+        <set name="crystal_type" value="NONE"/>
+        <set name="icon" value="cloakicons.cloak_04"/>
+        <set name="price" value="10000"/>
+        <set name="type" value="NONE"/>
+        <set name="weight" value="100"/>
+        <equip>
+            <slot id="BACK"/>
+        </equip>
+    </armor>
+    <armor id="9405" name="Lindvior Mantle">
+        <!-- [cloak_9405] -->
+        <set name="crystal_type" value="NONE"/>
+        <set name="icon" value="cloakicons.cloak_05"/>
+        <set name="price" value="10000"/>
+        <set name="type" value="NONE"/>
+        <set name="weight" value="100"/>
+        <equip>
+            <slot id="BACK"/>
+        </equip>
+    </armor>
+    <armor id="9406" name="Valakas Mantle">
+        <!-- [cloak_9406] -->
+        <set name="crystal_type" value="NONE"/>
+        <set name="icon" value="cloakicons.cloak_06"/>
+        <set name="price" value="10000"/>
+        <set name="type" value="NONE"/>
+        <set name="weight" value="100"/>
+        <equip>
+            <slot id="BACK"/>
+        </equip>
+    </armor>
+    <armor id="9407" name="Dark Dragon's Radiant Cloak">
+        <!-- [cloak_9407] -->
+        <set name="crystal_type" value="NONE"/>
+        <set name="icon" value="cloakicons.cloak_07"/>
+        <set name="price" value="10000"/>
+        <set name="type" value="NONE"/>
+        <set name="weight" value="100"/>
+        <equip>
+            <slot id="BACK"/>
+        </equip>
+    </armor>
+    <armor id="9408" name="Dark Star - Heavenly Cloak">
+        <!-- [cloak_9408] -->
+        <set name="crystal_type" value="NONE"/>
+        <set name="icon" value="cloakicons.cloak_08"/>
+        <set name="price" value="10000"/>
+        <set name="type" value="NONE"/>
+        <set name="weight" value="100"/>
+        <equip>
+            <slot id="BACK"/>
+        </equip>
+    </armor>
+    <armor id="9409" name="Crimson Noblesse Mantle">
+        <!-- [cloak_9409] -->
+        <set name="crystal_type" value="NONE"/>
+        <set name="icon" value="cloakicons.cloak_09"/>
+        <set name="price" value="10000"/>
+        <set name="type" value="NONE"/>
+        <set name="weight" value="100"/>
+        <equip>
+            <slot id="BACK"/>
+        </equip>
+    </armor>
+    <armor id="9410" name="Festival's Cloak - Pitch Black">
+        <!-- [cloak_9410] -->
+        <set name="crystal_type" value="NONE"/>
+        <set name="icon" value="cloakicons.cloak_10"/>
+        <set name="price" value="10000"/>
+        <set name="type" value="NONE"/>
+        <set name="weight" value="100"/>
+        <equip>
+            <slot id="BACK"/>
+        </equip>
+    </armor>
+    <armor id="9411" name="Festival's Cloak - Blood Red">
+        <!-- [cloak_9411] -->
+        <set name="crystal_type" value="NONE"/>
+        <set name="icon" value="cloakicons.cloak_11"/>
+        <set name="price" value="10000"/>
+        <set name="type" value="NONE"/>
+        <set name="weight" value="100"/>
+        <equip>
+            <slot id="BACK"/>
+        </equip>
+    </armor>
+    <armor id="9412" name="Festival's Cloak - Pearl White">
+        <!-- [cloak_9412] -->
+        <set name="crystal_type" value="NONE"/>
+        <set name="icon" value="cloakicons.cloak_12"/>
+        <set name="price" value="10000"/>
+        <set name="type" value="NONE"/>
+        <set name="weight" value="100"/>
+        <equip>
+            <slot id="BACK"/>
+        </equip>
+    </armor>
+    <armor id="9413" name="Zaken's Cloak">
+        <!-- [cloak_9413] -->
+        <set name="crystal_type" value="NONE"/>
+        <set name="icon" value="cloakicons.cloak_13"/>
+        <set name="price" value="10000"/>
+        <set name="type" value="NONE"/>
+        <set name="weight" value="100"/>
+        <equip>
+            <slot id="BACK"/>
+        </equip>
+    </armor>
+    <armor id="9414" name="Freya's Cloak">
+        <!-- [cloak_9414] -->
+        <set name="crystal_type" value="NONE"/>
+        <set name="icon" value="cloakicons.cloak_14"/>
+        <set name="price" value="10000"/>
+        <set name="type" value="NONE"/>
+        <set name="weight" value="100"/>
+        <equip>
+            <slot id="BACK"/>
+        </equip>
+    </armor>
+    <armor id="9415" name="Frintezza's Cloak">
+        <!-- [cloak_9415] -->
+        <set name="crystal_type" value="NONE"/>
+        <set name="icon" value="cloakicons.cloak_15"/>
+        <set name="price" value="10000"/>
+        <set name="type" value="NONE"/>
+        <set name="weight" value="100"/>
+        <equip>
+            <slot id="BACK"/>
+        </equip>
+    </armor>
+    <armor id="9416" name="Halloween Cloak">
+        <!-- [cloak_9416] -->
+        <set name="crystal_type" value="NONE"/>
+        <set name="icon" value="cloakicons.cloak_16"/>
+        <set name="price" value="10000"/>
+        <set name="type" value="NONE"/>
+        <set name="weight" value="100"/>
+        <equip>
+            <slot id="BACK"/>
+        </equip>
+    </armor>
+    <armor id="9417" name="Santa Girl's Cloak">
+        <!-- [cloak_9417] -->
+        <set name="crystal_type" value="NONE"/>
+        <set name="icon" value="cloakicons.cloak_17"/>
+        <set name="price" value="10000"/>
+        <set name="type" value="NONE"/>
+        <set name="weight" value="100"/>
+        <equip>
+            <slot id="BACK"/>
+        </equip>
+    </armor>
+    <armor id="9418" name="Russian Commemorative Cloak">
+        <!-- [cloak_9418] -->
+        <set name="crystal_type" value="NONE"/>
+        <set name="icon" value="cloakicons.cloak_18"/>
+        <set name="price" value="10000"/>
+        <set name="type" value="NONE"/>
+        <set name="weight" value="100"/>
+        <equip>
+            <slot id="BACK"/>
+        </equip>
+    </armor>
+    <armor id="9419" name="Polish Cloak">
+        <!-- [cloak_9419] -->
+        <set name="crystal_type" value="NONE"/>
+        <set name="icon" value="cloakicons.cloak_19"/>
+        <set name="price" value="10000"/>
+        <set name="type" value="NONE"/>
+        <set name="weight" value="100"/>
+        <equip>
+            <slot id="BACK"/>
+        </equip>
+    </armor>
+    <armor id="9420" name="Cloak of Light for the Chosen">
+        <!-- [cloak_9420] -->
+        <set name="crystal_type" value="NONE"/>
+        <set name="icon" value="cloakicons.cloak_20"/>
+        <set name="price" value="10000"/>
+        <set name="type" value="NONE"/>
+        <set name="weight" value="100"/>
+        <equip>
+            <slot id="BACK"/>
+        </equip>
+    </armor>
+    <armor id="9421" name="Cloak of Darkness for the Chosen">
+        <!-- [cloak_9421] -->
+        <set name="crystal_type" value="NONE"/>
+        <set name="icon" value="cloakicons.cloak_21"/>
+        <set name="price" value="10000"/>
+        <set name="type" value="NONE"/>
+        <set name="weight" value="100"/>
+        <equip>
+            <slot id="BACK"/>
+        </equip>
+    </armor>
+    <armor id="9422" name="Elmoreden Cloak">
+        <!-- [cloak_9422] -->
+        <set name="crystal_type" value="NONE"/>
+        <set name="icon" value="cloakicons.cloak_22"/>
+        <set name="price" value="10000"/>
+        <set name="type" value="NONE"/>
+        <set name="weight" value="100"/>
+        <equip>
+            <slot id="BACK"/>
+        </equip>
+    </armor>
+    <armor id="9423" name="Aden Cloak">
+        <!-- [cloak_9423] -->
+        <set name="crystal_type" value="NONE"/>
+        <set name="icon" value="cloakicons.cloak_23"/>
+        <set name="price" value="10000"/>
+        <set name="type" value="NONE"/>
+        <set name="weight" value="100"/>
+        <equip>
+            <slot id="BACK"/>
+        </equip>
+    </armor>
+    <armor id="9424" name="Elmore Cloak">
+        <!-- [cloak_9424] -->
+        <set name="crystal_type" value="NONE"/>
+        <set name="icon" value="cloakicons.cloak_24"/>
+        <set name="price" value="10000"/>
+        <set name="type" value="NONE"/>
+        <set name="weight" value="100"/>
+        <equip>
+            <slot id="BACK"/>
+        </equip>
+    </armor>
+    <armor id="9425" name="Ferios Cloak">
+        <!-- [cloak_9425] -->
+        <set name="crystal_type" value="NONE"/>
+        <set name="icon" value="cloakicons.cloak_25"/>
+        <set name="price" value="10000"/>
+        <set name="type" value="NONE"/>
+        <set name="weight" value="100"/>
+        <equip>
+            <slot id="BACK"/>
+        </equip>
+    </armor>
+    <armor id="9426" name="Legendary Elmoreden Cloak">
+        <!-- [cloak_9426] -->
+        <set name="crystal_type" value="NONE"/>
+        <set name="icon" value="cloakicons.cloak_26"/>
+        <set name="price" value="10000"/>
+        <set name="type" value="NONE"/>
+        <set name="weight" value="100"/>
+        <equip>
+            <slot id="BACK"/>
+        </equip>
+    </armor>
+    <armor id="9427" name="Legendary Aden Cloak">
+        <!-- [cloak_9427] -->
+        <set name="crystal_type" value="NONE"/>
+        <set name="icon" value="cloakicons.cloak_27"/>
+        <set name="price" value="10000"/>
+        <set name="type" value="NONE"/>
+        <set name="weight" value="100"/>
+        <equip>
+            <slot id="BACK"/>
+        </equip>
+    </armor>
+    <armor id="9428" name="Legendary Elmore Cloak">
+        <!-- [cloak_9428] -->
+        <set name="crystal_type" value="NONE"/>
+        <set name="icon" value="cloakicons.cloak_28"/>
+        <set name="price" value="10000"/>
+        <set name="type" value="NONE"/>
+        <set name="weight" value="100"/>
+        <equip>
+            <slot id="BACK"/>
+        </equip>
+    </armor>
+    <armor id="9429" name="Legendary Ferios Cloak">
+        <!-- [cloak_9429] -->
+        <set name="crystal_type" value="NONE"/>
+        <set name="icon" value="cloakicons.cloak_29"/>
+        <set name="price" value="10000"/>
+        <set name="type" value="NONE"/>
+        <set name="weight" value="100"/>
+        <equip>
+            <slot id="BACK"/>
+        </equip>
+    </armor>
+    <armor id="9430" name="Abelius' Cloak">
+        <!-- [cloak_9430] -->
+        <set name="crystal_type" value="NONE"/>
+        <set name="icon" value="cloakicons.cloak_30"/>
+        <set name="price" value="10000"/>
+        <set name="type" value="NONE"/>
+        <set name="weight" value="100"/>
+        <equip>
+            <slot id="BACK"/>
+        </equip>
+    </armor>
+    <armor id="9431" name="Sapyros' Cloak">
+        <!-- [cloak_9431] -->
+        <set name="crystal_type" value="NONE"/>
+        <set name="icon" value="cloakicons.cloak_31"/>
+        <set name="price" value="10000"/>
+        <set name="type" value="NONE"/>
+        <set name="weight" value="100"/>
+        <equip>
+            <slot id="BACK"/>
+        </equip>
+    </armor>
+    <armor id="9432" name="Ashagen's Cloak">
+        <!-- [cloak_9432] -->
+        <set name="crystal_type" value="NONE"/>
+        <set name="icon" value="cloakicons.cloak_32"/>
+        <set name="price" value="10000"/>
+        <set name="type" value="NONE"/>
+        <set name="weight" value="100"/>
+        <equip>
+            <slot id="BACK"/>
+        </equip>
+    </armor>
+    <armor id="9433" name="Cranigg's Cloak">
+        <!-- [cloak_9433] -->
+        <set name="crystal_type" value="NONE"/>
+        <set name="icon" value="cloakicons.cloak_33"/>
+        <set name="price" value="10000"/>
+        <set name="type" value="NONE"/>
+        <set name="weight" value="100"/>
+        <equip>
+            <slot id="BACK"/>
+        </equip>
+    </armor>
+    <armor id="9434" name="Soltkreig's Cloak">
+        <!-- [cloak_9434] -->
+        <set name="crystal_type" value="NONE"/>
+        <set name="icon" value="cloakicons.cloak_34"/>
+        <set name="price" value="10000"/>
+        <set name="type" value="NONE"/>
+        <set name="weight" value="100"/>
+        <equip>
+            <slot id="BACK"/>
+        </equip>
+    </armor>
+    <armor id="9435" name="Naviarope's Cloak">
+        <!-- [cloak_9435] -->
+        <set name="crystal_type" value="NONE"/>
+        <set name="icon" value="cloakicons.cloak_35"/>
+        <set name="price" value="10000"/>
+        <set name="type" value="NONE"/>
+        <set name="weight" value="100"/>
+        <equip>
+            <slot id="BACK"/>
+        </equip>
+    </armor>
+    <armor id="9436" name="Leister's Cloak">
+        <!-- [cloak_9436] -->
+        <set name="crystal_type" value="NONE"/>
+        <set name="icon" value="cloakicons.cloak_36"/>
+        <set name="price" value="10000"/>
+        <set name="type" value="NONE"/>
+        <set name="weight" value="100"/>
+        <equip>
+            <slot id="BACK"/>
+        </equip>
+    </armor>
+    <armor id="9437" name="Lakcis' Cloak">
+        <!-- [cloak_9437] -->
+        <set name="crystal_type" value="NONE"/>
+        <set name="icon" value="cloakicons.cloak_37"/>
+        <set name="price" value="10000"/>
+        <set name="type" value="NONE"/>
+        <set name="weight" value="100"/>
+        <equip>
+            <slot id="BACK"/>
+        </equip>
+    </armor>
+    <armor id="9438" name="Hero's Cloak">
+        <!-- [cloak_9438] -->
+        <set name="crystal_type" value="NONE"/>
+        <set name="icon" value="cloakicons.cloak_38"/>
+        <set name="price" value="10000"/>
+        <set name="type" value="NONE"/>
+        <set name="weight" value="100"/>
+        <equip>
+            <slot id="BACK"/>
+        </equip>
+    </armor>
+    <armor id="9439" name="Cloak of Glory">
+        <!-- [cloak_9439] -->
+        <set name="crystal_type" value="NONE"/>
+        <set name="icon" value="cloakicons.cloak_39"/>
+        <set name="price" value="10000"/>
+        <set name="type" value="NONE"/>
+        <set name="weight" value="100"/>
+        <equip>
+            <slot id="BACK"/>
+        </equip>
+    </armor>
+    <armor id="9440" name="Clan Cloak - Standard">
+        <!-- [cloak_9440] -->
+        <set name="crystal_type" value="NONE"/>
+        <set name="icon" value="cloakicons.cloak_40"/>
+        <set name="price" value="10000"/>
+        <set name="type" value="NONE"/>
+        <set name="weight" value="100"/>
+        <equip>
+            <slot id="BACK"/>
+        </equip>
+    </armor>
+    <armor id="9441" name="Clan Cloak - Clan Hall (Auction)">
+        <!-- [cloak_9441] -->
+        <set name="crystal_type" value="NONE"/>
+        <set name="icon" value="cloakicons.cloak_41"/>
+        <set name="price" value="10000"/>
+        <set name="type" value="NONE"/>
+        <set name="weight" value="100"/>
+        <equip>
+            <slot id="BACK"/>
+        </equip>
+    </armor>
+    <armor id="9442" name="Clan Cloak - Castle">
+        <!-- [cloak_9442] -->
+        <set name="crystal_type" value="NONE"/>
+        <set name="icon" value="cloakicons.cloak_42"/>
+        <set name="price" value="10000"/>
+        <set name="type" value="NONE"/>
+        <set name="weight" value="100"/>
+        <equip>
+            <slot id="BACK"/>
+        </equip>
+    </armor>
+    <armor id="9443" name="Exalted Cloak">
+        <!-- [cloak_9443] -->
+        <set name="crystal_type" value="NONE"/>
+        <set name="icon" value="cloakicons.cloak_43"/>
+        <set name="price" value="10000"/>
+        <set name="type" value="NONE"/>
+        <set name="weight" value="100"/>
+        <equip>
+            <slot id="BACK"/>
+        </equip>
+    </armor>
+    <armor id="9444" name="Clan Cloak - War Lv. 1">
+        <!-- [cloak_9444] -->
+        <set name="crystal_type" value="NONE"/>
+        <set name="icon" value="cloakicons.cloak_44"/>
+        <set name="price" value="10000"/>
+        <set name="type" value="NONE"/>
+        <set name="weight" value="100"/>
+        <equip>
+            <slot id="BACK"/>
+        </equip>
+    </armor>
+    <armor id="9445" name="Clan Cloak - War Lv. 2">
+        <!-- [cloak_9445] -->
+        <set name="crystal_type" value="NONE"/>
+        <set name="icon" value="cloakicons.cloak_45"/>
+        <set name="price" value="10000"/>
+        <set name="type" value="NONE"/>
+        <set name="weight" value="100"/>
+        <equip>
+            <slot id="BACK"/>
+        </equip>
+    </armor>
+    <armor id="9446" name="Clan Cloak - War Lv. 3">
+        <!-- [cloak_9446] -->
+        <set name="crystal_type" value="NONE"/>
+        <set name="icon" value="cloakicons.cloak_46"/>
+        <set name="price" value="10000"/>
+        <set name="type" value="NONE"/>
+        <set name="weight" value="100"/>
+        <equip>
+            <slot id="BACK"/>
+        </equip>
+    </armor>
+    <armor id="9447" name="Clan Cloak - War Lv. 4">
+        <!-- [cloak_9447] -->
+        <set name="crystal_type" value="NONE"/>
+        <set name="icon" value="cloakicons.cloak_47"/>
+        <set name="price" value="10000"/>
+        <set name="type" value="NONE"/>
+        <set name="weight" value="100"/>
+        <equip>
+            <slot id="BACK"/>
+        </equip>
+    </armor>
+    <armor id="9448" name="Clan Cloak - Growth Lv. 1">
+        <!-- [cloak_9448] -->
+        <set name="crystal_type" value="NONE"/>
+        <set name="icon" value="cloakicons.cloak_48"/>
+        <set name="price" value="10000"/>
+        <set name="type" value="NONE"/>
+        <set name="weight" value="100"/>
+        <equip>
+            <slot id="BACK"/>
+        </equip>
+    </armor>
+    <armor id="9449" name="Clan Cloak - Growth Lv. 2">
+        <!-- [cloak_9449] -->
+        <set name="crystal_type" value="NONE"/>
+        <set name="icon" value="cloakicons.cloak_49"/>
+        <set name="price" value="10000"/>
+        <set name="type" value="NONE"/>
+        <set name="weight" value="100"/>
+        <equip>
+            <slot id="BACK"/>
+        </equip>
+    </armor>
+    <armor id="9450" name="Clan Cloak - Growth Lv. 3">
+        <!-- [cloak_9450] -->
+        <set name="crystal_type" value="NONE"/>
+        <set name="icon" value="cloakicons.cloak_50"/>
+        <set name="price" value="10000"/>
+        <set name="type" value="NONE"/>
+        <set name="weight" value="100"/>
+        <equip>
+            <slot id="BACK"/>
+        </equip>
+    </armor>
+    <armor id="9451" name="Clan Cloak - Growth Lv. 4">
+        <!-- [cloak_9451] -->
+        <set name="crystal_type" value="NONE"/>
+        <set name="icon" value="cloakicons.cloak_51"/>
+        <set name="price" value="10000"/>
+        <set name="type" value="NONE"/>
+        <set name="weight" value="100"/>
+        <equip>
+            <slot id="BACK"/>
+        </equip>
+    </armor>
+    <armor id="9452" name="Clan Cloak - Combat Lv. 1">
+        <!-- [cloak_9452] -->
+        <set name="crystal_type" value="NONE"/>
+        <set name="icon" value="cloakicons.cloak_52"/>
+        <set name="price" value="10000"/>
+        <set name="type" value="NONE"/>
+        <set name="weight" value="100"/>
+        <equip>
+            <slot id="BACK"/>
+        </equip>
+    </armor>
+    <armor id="9453" name="Clan Cloak - Combat Lv. 2">
+        <!-- [cloak_9453] -->
+        <set name="crystal_type" value="NONE"/>
+        <set name="icon" value="cloakicons.cloak_53"/>
+        <set name="price" value="10000"/>
+        <set name="type" value="NONE"/>
+        <set name="weight" value="100"/>
+        <equip>
+            <slot id="BACK"/>
+        </equip>
+    </armor>
+    <armor id="9454" name="Clan Cloak - Combat Lv. 3">
+        <!-- [cloak_9454] -->
+        <set name="crystal_type" value="NONE"/>
+        <set name="icon" value="cloakicons.cloak_54"/>
+        <set name="price" value="10000"/>
+        <set name="type" value="NONE"/>
+        <set name="weight" value="100"/>
+        <equip>
+            <slot id="BACK"/>
+        </equip>
+    </armor>
+    <armor id="9455" name="Clan Cloak - Combat Lv. 4">
+        <!-- [cloak_9455] -->
+        <set name="crystal_type" value="NONE"/>
+        <set name="icon" value="cloakicons.cloak_55"/>
+        <set name="price" value="10000"/>
+        <set name="type" value="NONE"/>
+        <set name="weight" value="100"/>
+        <equip>
+            <slot id="BACK"/>
+        </equip>
+    </armor>
+    <armor id="9456" name="Clan Cloak - Economy Lv. 1">
+        <!-- [cloak_9456] -->
+        <set name="crystal_type" value="NONE"/>
+        <set name="icon" value="cloakicons.cloak_56"/>
+        <set name="price" value="10000"/>
+        <set name="type" value="NONE"/>
+        <set name="weight" value="100"/>
+        <equip>
+            <slot id="BACK"/>
+        </equip>
+    </armor>
+    <armor id="9457" name="Clan Cloak - Economy Lv. 2">
+        <!-- [cloak_9457] -->
+        <set name="crystal_type" value="NONE"/>
+        <set name="icon" value="cloakicons.cloak_57"/>
+        <set name="price" value="10000"/>
+        <set name="type" value="NONE"/>
+        <set name="weight" value="100"/>
+        <equip>
+            <slot id="BACK"/>
+        </equip>
+    </armor>
+    <armor id="9458" name="Clan Cloak - Economy Lv. 3">
+        <!-- [cloak_9458] -->
+        <set name="crystal_type" value="NONE"/>
+        <set name="icon" value="cloakicons.cloak_58"/>
+        <set name="price" value="10000"/>
+        <set name="type" value="NONE"/>
+        <set name="weight" value="100"/>
+        <equip>
+            <slot id="BACK"/>
+        </equip>
+    </armor>
+    <armor id="9459" name="Clan Cloak - Economy Lv. 4">
+        <!-- [cloak_9459] -->
+        <set name="crystal_type" value="NONE"/>
+        <set name="icon" value="cloakicons.cloak_59"/>
+        <set name="price" value="10000"/>
+        <set name="type" value="NONE"/>
+        <set name="weight" value="100"/>
+        <equip>
+            <slot id="BACK"/>
+        </equip>
+    </armor>
+    <armor id="9460" name="Cloak of Conquest">
+        <!-- [cloak_9460] -->
+        <set name="crystal_type" value="NONE"/>
+        <set name="icon" value="cloakicons.cloak_60"/>
+        <set name="price" value="10000"/>
+        <set name="type" value="NONE"/>
+        <set name="weight" value="100"/>
+        <equip>
+            <slot id="BACK"/>
+        </equip>
+    </armor>
+    <armor id="9461" name="Valakas' Wings">
+        <!-- [cloak_9461] -->
+        <set name="crystal_type" value="NONE"/>
+        <set name="icon" value="cloakicons.cloak_61"/>
+        <set name="price" value="10000"/>
+        <set name="type" value="NONE"/>
+        <set name="weight" value="100"/>
+        <equip>
+            <slot id="BACK"/>
+        </equip>
+    </armor>
+    <armor id="9462" name="Death Knight's Cloak R99">
+        <!-- [cloak_9462] -->
+        <set name="crystal_type" value="NONE"/>
+        <set name="icon" value="cloakicons.cloak_62"/>
+        <set name="price" value="10000"/>
+        <set name="type" value="NONE"/>
+        <set name="weight" value="100"/>
+        <equip>
+            <slot id="BACK"/>
+        </equip>
+    </armor>
+    <armor id="9463" name="Death Knight's Cloak R110">
+        <!-- [cloak_9463] -->
+        <set name="crystal_type" value="NONE"/>
+        <set name="icon" value="cloakicons.cloak_63"/>
+        <set name="price" value="10000"/>
+        <set name="type" value="NONE"/>
+        <set name="weight" value="100"/>
+        <equip>
+            <slot id="BACK"/>
+        </equip>
+    </armor>
+    <armor id="9464" name="Death Knight's Ranker Mantle">
+        <!-- [cloak_9464] -->
+        <set name="crystal_type" value="NONE"/>
+        <set name="icon" value="cloakicons.cloak_64"/>
+        <set name="price" value="10000"/>
+        <set name="type" value="NONE"/>
+        <set name="weight" value="100"/>
+        <equip>
+            <slot id="BACK"/>
+        </equip>
+    </armor>
+    <armor id="9465" name="Woeful Sword Eigis's Cloak">
+        <!-- [cloak_9465] -->
+        <set name="crystal_type" value="NONE"/>
+        <set name="icon" value="cloakicons.cloak_65"/>
+        <set name="price" value="10000"/>
+        <set name="type" value="NONE"/>
+        <set name="weight" value="100"/>
+        <equip>
+            <slot id="BACK"/>
+        </equip>
+    </armor>
+    <armor id="9466" name="Light Dragon's Cloak Imbued With Dwarven Magic">
+        <!-- [cloak_9466] -->
+        <set name="crystal_type" value="NONE"/>
+        <set name="icon" value="cloakicons.cloak_66"/>
+        <set name="price" value="10000"/>
+        <set name="type" value="NONE"/>
+        <set name="weight" value="100"/>
+        <equip>
+            <slot id="BACK"/>
+        </equip>
+    </armor>
+</list>
