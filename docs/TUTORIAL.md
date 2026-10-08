@@ -4,6 +4,8 @@
 
 Passo a passo do zero até ver a capa no personagem. Leva uma tarde na primeira vez; depois de gerar os pacotes (passo 3) o resto é rápido.
 
+> **Atalho:** se você só quer usar, baixe os arquivos prontos da [Release v1.0](https://github.com/luannbr/Cloak_Essence_to_Interlude/releases/tag/v1.0) (`..._client_files_v1.0.zip`), descompacte e rode `install.ps1 -Client "C:\Lineage II"` — e pule os passos 2 e 3. Os passos abaixo são para quem quer compilar e gerar tudo do próprio cliente Essence.
+
 ## 0. O que você precisa
 
 | Item | Para quê |
@@ -36,7 +38,7 @@ Resultado: `source\build\Release\dsetup.dll` (o `install\install.ps1` já procur
 
 ## 3. Gerar os pacotes de dados (a partir do **seu** cliente Essence)
 
-Os `essence_*.bin` contêm conteúdo da NCSoft e por isso **não estão no repositório**: você os gera do seu cliente Essence.
+Os `essence_*.bin` contêm conteúdo da NCSoft e por isso **não estão na árvore do repositório** (há uma cópia pronta na Release v1.0): aqui você os gera do seu cliente Essence.
 
 ```powershell
 $env:L2_ESSENCE_ROOT = "D:\Lineage2-Essence"                                          # pasta com Animations\, SysTextures\, StaticMeshes\, system\
@@ -131,6 +133,8 @@ Teste rápido sem item nem servidor: no `cloakhook.ini` ponha `ForceId=9423` (de
 
 Step by step from nothing to a cloak on your character. The first time takes an afternoon; once the packs exist (step 3) the rest is quick.
 
+> **Shortcut:** if you just want to use it, download the ready-made files from the [v1.0 release](https://github.com/luannbr/Cloak_Essence_to_Interlude/releases/tag/v1.0) (`..._client_files_v1.0.zip`), unzip and run `install.ps1 -Client "C:\Lineage II"` — and skip steps 2 and 3. The steps below are for building and generating everything from your own Essence client.
+
 ## 0. What you need
 
 An **Interlude (C6) 32-bit client** from Lucera/L2BR whose `Engine.dll` the hook accepts; that client's `animations\LineShieldCloaks.ukx` (~294 MB, **not in this repository**); the original Microsoft `dsetup.dll` (~62 KB); a **Lineage II Essence client** (tested with 5.41/5.42 EU) to extract the content; Windows 10/11, PowerShell 5.1, Python 3.10+, Visual Studio 2022 (x86) and CMake; optionally a Lucera Interlude server.
@@ -155,7 +159,7 @@ Result: `source\build\Release\dsetup.dll`.
 
 ## 3. Generate the data packs from **your** Essence client
 
-The `essence_*.bin` files contain NCSoft content, so they are **not** in the repository. Set `L2_ESSENCE_ROOT` (the Essence folder with `Animations\`, `SysTextures\`, `StaticMeshes\`, `system\`), `L2_ESSENCE_CRYPT_XML` (the DatEditor's `cryptVersion.xml`, only for decrypting `.dat`) and `CLOAK_DATA` (a work folder).
+The `essence_*.bin` files contain NCSoft content, so they are **not** in the repository tree (a ready-made copy is in the v1.0 release); here you generate them from your own Essence client. Set `L2_ESSENCE_ROOT` (the Essence folder with `Animations\`, `SysTextures\`, `StaticMeshes\`, `system\`), `L2_ESSENCE_CRYPT_XML` (the DatEditor's `cryptVersion.xml`, only for decrypting `.dat`) and `CLOAK_DATA` (a work folder).
 
 3a. Item data: decrypt the Essence `armorgrp.dat` and `itemname-eu.dat` (`tools/essence_dat.py`), unpack them to text with the L2s **DatEditor CLI**, and save them as `work/essence_dat/Armorgrp.txt` and `ItemName-eu.txt`.
 

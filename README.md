@@ -5,7 +5,8 @@
 Capas ao estilo **Lineage II Essence** num cliente **Interlude (C6)**: capas animadas, capas de tecido com física, golas rígidas, capas com asas e efeitos de partículas. É uma `dsetup.dll` (proxy de 32 bits) que desenha **só** as capas — sem anti-cheat, sem overlay, sem rede.
 
 > Desenvolvido e testado no cliente/servidor **Lucera Interlude** (cliente L2BR). Veja as [limitações](#limitações) antes de usar em outro cliente.
-> **Os dados do Essence (malhas, texturas, animações) não estão neste repositório**: você os gera do seu próprio cliente Essence com as ferramentas de `source/tools`. O passo a passo está em **[docs/TUTORIAL.md](docs/TUTORIAL.md)**.
+> **Download pronto:** a [**Release v1.0**](https://github.com/luannbr/Cloak_Essence_to_Interlude/releases/tag/v1.0) traz a DLL, os pacotes de dados e o instalador — é só descompactar e rodar `install.ps1`.
+> O repositório em si tem só o código; os dados do Essence (malhas, texturas, animações) você também pode **gerar do seu próprio cliente Essence** com `source/tools`. Passo a passo: **[docs/TUTORIAL.md](docs/TUTORIAL.md)**.
 
 ## O que tem aqui
 
@@ -28,6 +29,10 @@ Capas ao estilo **Lineage II Essence** num cliente **Interlude (C6)**: capas ani
 Tabela completa: [docs/CATALOG.md](docs/CATALOG.md).
 
 ## Início rápido
+
+**Opção A — arquivos prontos (mais fácil):** baixe `Cloak_Essence_to_Interlude_client_files_v1.0.zip` na [Release v1.0](https://github.com/luannbr/Cloak_Essence_to_Interlude/releases/tag/v1.0), descompacte e rode `.\install.ps1 -Client "C:\Lineage II"` (jogo fechado). No servidor Lucera, copie o XML de itens que vem no zip. Para o cliente Lucera/L2BR há também o zip com os `.dat` (`-WithDats -DatsFolder <pasta>`).
+
+**Opção B — gerar tudo você mesmo:**
 
 1. **Compile a DLL:** `cd source; cmake -S . -B build -G "Visual Studio 17 2022" -A Win32; cmake --build build --config Release`
 2. **Gere os pacotes** `essence_capes.bin`, `essence_cloth.bin`, `essence_fx.bin` do seu cliente Essence ([TUTORIAL, passo 3](docs/TUTORIAL.md)).
@@ -72,7 +77,8 @@ Usa [MinHook](https://github.com/TsudaKageyu/minhook) (BSD-2-Clause), baixado pe
 **Essence-style cloaks for a Lineage II Interlude (C6) client**: animated mantles, cloth-simulated cloaks with rigid collars, wing cloaks and particle effects. A 32-bit proxy `dsetup.dll` that draws **only** cloaks — no anti-cheat, no overlay, no networking.
 
 > Built and tested on the **Lucera Interlude** client/server (L2BR client). Read the [limitations](#limitations-1) before using another client.
-> **The Essence data (meshes, textures, animations) is not in this repository**: you generate it from your own Essence client with the tools in `source/tools`. Step by step: **[docs/TUTORIAL.md](docs/TUTORIAL.md)**.
+> **Ready-made download:** the [**v1.0 release**](https://github.com/luannbr/Cloak_Essence_to_Interlude/releases/tag/v1.0) has the DLL, the data packs and the installer — unzip and run `install.ps1`.
+> The repository itself holds the code only; you can also **generate the Essence data from your own Essence client** with `source/tools`. Step by step: **[docs/TUTORIAL.md](docs/TUTORIAL.md)**.
 
 ## Layout
 
@@ -83,6 +89,10 @@ Usa [MinHook](https://github.com/TsudaKageyu/minhook) (BSD-2-Clause), baixado pe
 10 animated mantles (9400–9409), 51 cloth cloaks with collars (9410–9460, all Clan Cloaks included), 6 wing cloaks (9461–9466). The War / Growth / Combat / Economy Clan Cloaks (levels 1–4) show the Twitch / YouTube / TikTok / Kick logos in their crest window. [docs/CATALOG.md](docs/CATALOG.md).
 
 ## Quick start
+
+**Option A — ready-made files (easiest):** download `Cloak_Essence_to_Interlude_client_files_v1.0.zip` from the [v1.0 release](https://github.com/luannbr/Cloak_Essence_to_Interlude/releases/tag/v1.0), unzip it and run `.\install.ps1 -Client "C:\Lineage II"` (game closed). On a Lucera server copy the item XML from the zip. For the Lucera/L2BR client there is also a zip with the `.dat` files (`-WithDats -DatsFolder <folder>`).
+
+**Option B — generate everything yourself:**
 
 1. Build the DLL: `cd source; cmake -S . -B build -G "Visual Studio 17 2022" -A Win32; cmake --build build --config Release`
 2. Generate `essence_capes.bin`, `essence_cloth.bin`, `essence_fx.bin` from your Essence client ([TUTORIAL, step 3](docs/TUTORIAL.md)).
