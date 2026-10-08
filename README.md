@@ -43,7 +43,7 @@ Tabela completa: [docs/CATALOG.md](docs/CATALOG.md).
 ## Requisitos
 
 * Cliente Lineage II **Interlude** de 32 bits cujo `Engine.dll` tenha as funções nos endereços (RVA) esperados — o hook confere e **se recusa a ligar** se forem outros (o log diz `unsupported engine.dll`). Builds conhecidos: o cliente L2BR/Lucera.
-* `animations\LineShieldCloaks.ukx` do cliente L2BR/LineShield (**não incluído**, é de terceiros): fornece as malhas "carrier" `<Corpo>_Cloak_<id>` que fazem a engine liberar o slot de capa.
+* `animations\LineShieldCloaks.ukx` do cliente L2BR/LineShield (de terceiros): fornece as malhas "carrier" `<Corpo>_Cloak_<id>` que fazem a engine liberar o slot de capa. Quem usa o cliente L2BR/Lucera já o tem; para os outros, o arquivo original (sem alteração) está na [Release v1.0](https://github.com/luannbr/Cloak_Essence_to_Interlude/releases/tag/v1.0) como `LineShieldCloaks_carrier_package_v1.0.zip`.
 * A `dsetup.dll` **original da Microsoft** (≈ 62 KB): o instalador a guarda como `dsetup_ms.dll`.
 * Um cliente **Essence** (testado com 5.41/5.42 EU) para extrair o conteúdo.
 * Servidor: itens no slot **BACK** (paperdoll 13); o XML é para o **Lucera**.
@@ -102,7 +102,7 @@ Usa [MinHook](https://github.com/TsudaKageyu/minhook) (BSD-2-Clause), baixado pe
 
 ## Requirements
 
-A 32-bit Interlude client whose `Engine.dll` exports sit at the expected RVAs (the hook checks and refuses to start otherwise); `animations\LineShieldCloaks.ukx` from the L2BR/LineShield client (**not included**, third party; it provides the `<Body>_Cloak_<id>` carrier meshes); the original Microsoft `dsetup.dll` (~62 KB); an Essence client (tested with 5.41/5.42 EU); a Lucera server (BACK slot); Windows, PowerShell 5.1, Python 3.10+ (`numpy`, `pillow`, `scipy`), Visual Studio 2022 (x86), CMake.
+A 32-bit Interlude client whose `Engine.dll` exports sit at the expected RVAs (the hook checks and refuses to start otherwise); `animations\LineShieldCloaks.ukx` from the L2BR/LineShield client (third party; already present in the L2BR/Lucera client, otherwise the unmodified file is in the [v1.0 release](https://github.com/luannbr/Cloak_Essence_to_Interlude/releases/tag/v1.0) as `LineShieldCloaks_carrier_package_v1.0.zip`; it provides the `<Body>_Cloak_<id>` carrier meshes); the original Microsoft `dsetup.dll` (~62 KB); an Essence client (tested with 5.41/5.42 EU); a Lucera server (BACK slot); Windows, PowerShell 5.1, Python 3.10+ (`numpy`, `pillow`, `scipy`), Visual Studio 2022 (x86), CMake.
 
 ## Configuration
 

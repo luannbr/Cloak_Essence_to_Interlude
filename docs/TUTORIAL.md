@@ -11,7 +11,7 @@ Passo a passo do zero até ver a capa no personagem. Leva uma tarde na primeira 
 | Item | Para quê |
 |---|---|
 | Um cliente **Interlude (C6) de 32 bits** do Lucera/L2BR | onde as capas vão aparecer (o hook confere o `Engine.dll`, veja o [README](../README.md#limitações)) |
-| `animations\LineShieldCloaks.ukx` desse cliente (≈ 294 MB) | malhas "carrier" — **não vem neste repositório** |
+| `animations\LineShieldCloaks.ukx` desse cliente (≈ 294 MB) | malhas "carrier" — não está na árvore do Git; quem usa o cliente L2BR já o tem, os outros baixam `LineShieldCloaks_carrier_package_v1.0.zip` na [Release v1.0](https://github.com/luannbr/Cloak_Essence_to_Interlude/releases/tag/v1.0) e copiam para `animations\` |
 | A `dsetup.dll` **original da Microsoft** (≈ 62 KB) | o instalador a guarda como `dsetup_ms.dll` |
 | Um cliente **Lineage II Essence** (testado com a versão 5.41/5.42 EU) | de onde saem malhas, animações, texturas e efeitos |
 | Windows 10/11, PowerShell 5.1, **Python 3.10+**, **Visual Studio 2022 (x86)** e **CMake** | gerar os dados e compilar |
@@ -137,7 +137,7 @@ Step by step from nothing to a cloak on your character. The first time takes an 
 
 ## 0. What you need
 
-An **Interlude (C6) 32-bit client** from Lucera/L2BR whose `Engine.dll` the hook accepts; that client's `animations\LineShieldCloaks.ukx` (~294 MB, **not in this repository**); the original Microsoft `dsetup.dll` (~62 KB); a **Lineage II Essence client** (tested with 5.41/5.42 EU) to extract the content; Windows 10/11, PowerShell 5.1, Python 3.10+, Visual Studio 2022 (x86) and CMake; optionally a Lucera Interlude server.
+An **Interlude (C6) 32-bit client** from Lucera/L2BR whose `Engine.dll` the hook accepts; that client's `animations\LineShieldCloaks.ukx` (~294 MB; not in the Git tree — the L2BR client already has it, otherwise download `LineShieldCloaks_carrier_package_v1.0.zip` from the [v1.0 release](https://github.com/luannbr/Cloak_Essence_to_Interlude/releases/tag/v1.0) and copy it into `animations\`); the original Microsoft `dsetup.dll` (~62 KB); a **Lineage II Essence client** (tested with 5.41/5.42 EU) to extract the content; Windows 10/11, PowerShell 5.1, Python 3.10+, Visual Studio 2022 (x86) and CMake; optionally a Lucera Interlude server.
 
 ## 1. Get the project
 

@@ -17,7 +17,7 @@
     -Dll    : client\System\dsetup.dll (pacote pronto)  ou  ..\source\build\Release\dsetup.dll (compilada com o CMake)
     -Packs  : client\System\ (pacote pronto)  -  senao informe a pasta onde voce gerou os .bin (docs\BUILD.md)
     -Icons  : client\systextures\cloakicons.utx (opcional)
-  NAO inclui animations\LineShieldCloaks.ukx (pacote do L2BR/LineShield): veja o README.
+  animations\LineShieldCloaks.ukx (pacote do L2BR/LineShield) nao vem aqui: o cliente L2BR ja tem; senao baixe LineShieldCloaks_carrier_package_v1.0.zip na Release v1.0.
 #>
 param(
     [Parameter(Mandatory = $true)][string]$Client,
@@ -101,5 +101,5 @@ if ($WithDats) {
 }
 # 6) carrier package
 $ukx = Join-Path $Client 'animations\LineShieldCloaks.ukx'
-if (-not (Test-Path -LiteralPath $ukx)) { Write-Warning "animations\LineShieldCloaks.ukx nao encontrado: o sistema precisa dele (pacote do L2BR/LineShield, nao incluido). / not found: the system needs it (L2BR/LineShield package, not included)." }
+if (-not (Test-Path -LiteralPath $ukx)) { Write-Warning "animations\LineShieldCloaks.ukx nao encontrado: o sistema precisa dele (pacote do L2BR/LineShield; baixe LineShieldCloaks_carrier_package_v1.0.zip na Release v1.0 do GitHub). / not found: the system needs it (L2BR/LineShield package; download LineShieldCloaks_carrier_package_v1.0.zip from the GitHub v1.0 release)." }
 "instalado em / installed in $sys  -  log: $(Join-Path $sys 'cloakhook.log')"
