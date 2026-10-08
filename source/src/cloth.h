@@ -49,7 +49,8 @@ struct Params {
     float stiffness = 0.85f;                     // spring stiffness per iteration (Essence "Stiffness": 0.6 .. 0.85)
     float damping = 2.8f;                        // velocity damping per second
     int   iterations = 8;
-    float floorZ = 0.6f;                         // terrain collision (actor space z of the soles + margin)
+    float floorZ = 0.6f;                         // terrain collision (actor space z of the soles + margin); <= -1e8 = no floor
+    float gdir[3] = { 0.f, 0.f, -1.f };          // direction of gravity in actor space (a rider's actor is pitched / rolled with the mount, so the world 'down' is not actor -z)
     float skin = 0.35f;                          // extra radius around the capsules
     float maxStep = 1.0f;                         // clamp on the displacement of one step
     float jumpAngle = 0.7f, jumpDist = 15.f;     // a pose change per frame bigger than this (rad / units) restarts the cloth at rest
@@ -74,6 +75,7 @@ struct State {
     std::vector<float> p, q;                     // current / previous positions (np * 3)
     float accum = 0.f;
     bool havePrev = false; float Rp[9], gp[3];   // pose of the previous frame (for the frame following)
+    int resets = 0;                              // how many times the pinned pose jumped and the cloth restarted at rest (diagnostics)
 };
 
 inline void MulVec(const float* R, const float* v, float* o) {
@@ -173,7 +175,7 @@ inline void Step(const Set& s, State& st, const Params& pr, const Pose& po, cons
         float tr = 0.f; for (int i = 0; i < 3; ++i) for (int k = 0; k < 3; ++k) tr += A[i * 3 + k] * Bm[i * 3 + k];
         const float c = (tr - 1.f) * 0.5f, ang = std::acos(c > 1.f ? 1.f : (c < -1.f ? -1.f : c));
         const float dx = po.gt[0] - st.gp[0], dy = po.gt[1] - st.gp[1], dz = po.gt[2] - st.gp[2];
-        if (ang > pr.jumpAngle || dx * dx + dy * dy + dz * dz > pr.jumpDist * pr.jumpDist) { Reset(s, po, st); memcpy(st.Rp, po.Rs, sizeof st.Rp); st.gp[0] = po.gt[0]; st.gp[1] = po.gt[1]; st.gp[2] = po.gt[2]; st.havePrev = true; return; }
+        if (ang > pr.jumpAngle || dx * dx + dy * dy + dz * dz > pr.jumpDist * pr.jumpDist) { ++st.resets; Reset(s, po, st); memcpy(st.Rp, po.Rs, sizeof st.Rp); st.gp[0] = po.gt[0]; st.gp[1] = po.gt[1]; st.gp[2] = po.gt[2]; st.havePrev = true; return; }
     }
     FollowFrame(s, st, po, pr.follow);
     const float bk0[3] = { 0.f, -1.f, 0.f }; float back[3]; MulVec(po.Rs, bk0, back);
@@ -183,7 +185,7 @@ inline void Step(const Set& s, State& st, const Params& pr, const Pose& po, cons
     while (st.accum >= h && steps < 9) {
         st.accum -= h; ++steps;
         const float damp = std::exp(-pr.damping * h);
-        const float acc[3] = { pr.wind[0], pr.wind[1], pr.wind[2] - pr.gravity };
+        const float acc[3] = { pr.wind[0] + pr.gdir[0] * pr.gravity, pr.wind[1] + pr.gdir[1] * pr.gravity, pr.wind[2] + pr.gdir[2] * pr.gravity };
         for (int i = 0; i < s.np; ++i) {
             if (s.isAnchor[(size_t)i]) continue;
             float* p = &st.p[(size_t)i * 3]; float* q = &st.q[(size_t)i * 3];
@@ -228,7 +230,7 @@ inline void Step(const Set& s, State& st, const Params& pr, const Pose& po, cons
                 if (s.isAnchor[(size_t)i]) continue;
                 float* x = &st.p[(size_t)i * 3];
                 for (int c = 0; c < ncaps; ++c) if (caps[c].valid) PushOutCapsule(x, &st.q[(size_t)i * 3], caps[c], pr.skin, back, pr.inelastic);
-                if (x[2] < pr.floorZ) { float* q = &st.q[(size_t)i * 3]; const float v0[3] = { x[0] - q[0], x[1] - q[1], x[2] - q[2] }, up[3] = { 0.f, 0.f, 1.f }; x[2] = pr.floorZ; if (pr.inelastic) ContactVelocity(x, q, v0, up); }
+                if (pr.floorZ > -1e8f && x[2] < pr.floorZ) { float* q = &st.q[(size_t)i * 3]; const float v0[3] = { x[0] - q[0], x[1] - q[1], x[2] - q[2] }, up[3] = { 0.f, 0.f, 1.f }; x[2] = pr.floorZ; if (pr.inelastic) ContactVelocity(x, q, v0, up); }
             }
         }
     }

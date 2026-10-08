@@ -42,6 +42,10 @@ The hook reads the pawn's current animation channels from the body mesh instance
 
 The wings of the Essence cloaks are not part of the cloak mesh: they are **particle effects** (`LineageEffect*.u` emitter classes) attached to the item through `EnchantedCloakEffectData.dat`. `src/fx.h` simulates the emitters (spawn rate, lifetime, location shapes, radial velocity, drag, size/colour over life, spin, revolution, sprite orientation modes, sprite sheets, DrawStyle blend modes) and gathers camera-facing sprites, meshes and the vertex-animated wing mesh (frame = particle age) into batches that the hook draws after the cloak with additive / alpha blending. The effect origin follows the torso (centroid of the cloth anchors plus `EssenceFxClothOffset`, or `Spine2` plus `EssenceFxOffset` for mantles); the item → effect map is `EssenceFxMap`.
 
+### Mounts
+
+When the body plays `strider_*`, `wyvern_*`, `pet_*` or `ride*` the sequence says nothing about how fast the mount moves, so the hook uses the speed of the character: the sway state estimated from the cloak's `MeshToWorld` matrix (position difference per frame, low-pass filtered, kept by `StepSway`) is read on the next frame in `DrawCloak` (`t_rideSpeed`) and mapped to the idle / walk / run class (< 25, < 140, above, in units per second). The cloth wind is interpolated between the idle and run values; the baked-cape guide is off; seated rides (not the wyvern) add the pelvis collider used when sitting.
+
 ## 7. Item side
 
 * `data/cloak_catalog.csv` lists id, design and icon.

@@ -23,8 +23,16 @@ The project grew in short "rounds" (build, install, look in game, adjust). Dates
 * Clan cloaks: the crest window gets the cloth's shine, a fabric-matched background and, for War / Growth / Combat / Economy levels 1–4, the Twitch / YouTube / TikTok / Kick logos. The real clan crest is not available in the tested client.
 * Public package: tools no longer contain machine specific paths (environment variables instead), installer with backups and uninstall, generated configuration reference.
 
+## Mounts (2026-10-08)
+
+* A mounted rider plays one fixed engine sequence (`strider_*`, `wyvern_*`, `pet_*`) whatever the mount does, and the baked cape motion of those sequences is only idle-like, so the cloaks looked frozen on mounts. The hook now estimates the character's speed (from the previous frame's world matrix) and takes the wind class (idle / walk / run) from it; the cloth wind is interpolated up to `EssenceRideSpeed`, the baked-cape guide is switched off while riding, and the animated mantles' sway uses the same class (`EssenceRide`, `EssenceRideSpeed`).
+* Gravity of the cloth follows the world "down" expressed in the actor's axes (`cloth::Params::gdir`); on the tested client the rider's actor is not tilted, so this is a safeguard and changes nothing for the tested cases.
+* Seated rides (strider, pets) get the same pelvis collider the cloth already uses when sitting on the ground; the cloak no longer falls through the saddle in the same way. The mount itself has no collider.
+* Debug log lines `essence ride: ...` (speed, class, wind, number of cloth pose resets).
+
 ## Known open items
 
 * Real clan crest in the window (the client's crest texture object is empty).
 * Effects for Sayha's Special (91719–91721) and Heavenly Cloak (72514); items 34996 / 34997 / 47917 are not in the catalog (all 67 slots are used).
 * Only a Lucera Interlude client / server was used for testing.
+* Mounts: the wyvern (rider standing in a cage) and the strider saddle still have no collider of their own; a cloak can pass through parts of the mount. The ready-made DLL in release v1.0 predates the mount changes.

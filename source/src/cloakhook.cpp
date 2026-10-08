@@ -135,6 +135,8 @@ struct Config {
     int   essenceFxAxis = 0;                    //   how the effect's own axes sit on the torso: 0 x = front, z = up | 1 x = back, z = up | 2 x = up, z = back | 3 x = down, z = front
     wchar_t essenceFxForce[64] = L"";             //   test: show this effect class on EVERY Essence cloak (e.g. d_cloth_deco_d), changed live
     float essenceFxPGain = 1.f;                 //   brightness of the particles
+    bool  essenceRide = true;                   //   mounts: the rider plays a fixed 'strider' / 'wyvern' / 'pet' sequence, so the cloaks take their wind (walk / run) from the speed of the character
+    float essenceRideSpeed = 250.f;             //   speed (units/s) at which a ridden cloak gets the full run wind
     float essenceClothTopRamp = 9.f;            //   height over which the torso collider grows from the thickness of the pinned rows to its full radius (0 = plain capsule)
     float essenceClothWiden = 1.f;              //   how far the top of the cloth is widened towards the width of its collar (0 = as cut, 1 = to the collar), drawn only
     bool  essenceClothTorso = true;             //   orient the cloak by the real torso (shoulder line + spine) instead of assuming the idle pose faces straight ahead
@@ -288,6 +290,8 @@ void ReadEssenceCfg() {
     g_cfg.essenceClothTorso = GetPrivateProfileIntW(L"CloakHook", L"EssenceClothTorso", 1, ini) != 0;
     fl(L"EssenceClothWiden", L"1", g_cfg.essenceClothWiden);
     fl(L"EssenceClothTopRamp", L"9", g_cfg.essenceClothTopRamp);
+    g_cfg.essenceRide = GetPrivateProfileIntW(L"CloakHook", L"EssenceRide", 1, ini) != 0;
+    fl(L"EssenceRideSpeed", L"250", g_cfg.essenceRideSpeed);
     g_cfg.essenceFxParticles = GetPrivateProfileIntW(L"CloakHook", L"EssenceFxParticles", 1, ini) != 0;
     GetPrivateProfileStringW(L"CloakHook", L"EssenceFxPack", L"essence_fx.bin", g_cfg.essenceFxPack, 260, ini);
     {   wchar_t tm[1024]; GetPrivateProfileStringW(L"CloakHook", L"EssenceFxMap", L"", tm, 1024, ini); if (tm[0]) wcsncpy_s(g_cfg.essenceFxMap, tm, _TRUNCATE); }
@@ -699,7 +703,7 @@ constexpr int kHist = 96;                                                       
 struct SwayState { void* inst; bool init; ULONGLONG last; float pos[3]; float yaw; float th[2]; float om[2]; float phase; float vs[2]; float osm; int frames;
                    float rphase; double ht[kHist]; float hth[kHist][2]; int hhead, hn;
                    // cloth simulation inputs, all in the cloak's local axes (x lateral, y forward, z up), and the displacement field itself
-                   float vs3[3], al3[3], alpha, dtf; bool newFrame; float* cd; float* cv; int cnp; const void* cmesh;
+                   float vs3[3], al3[3], alpha, dtf; bool newFrame; float* cd; float* cv; int cnp; const void* cmesh; float down[3]; bool haveDown;
                    float Alin[9], Ainv[9]; bool haveA; };                       // pose of the cloak's bone relative to its rest pose (fitted from the engine's vertices)
 static SwayState g_sway[48];
 static int g_nsway = 0;
@@ -711,6 +715,7 @@ static SwayState* SwayFor(void* inst) {
     s->phase = (float)((reinterpret_cast<uintptr_t>(inst) >> 4) % 628) / 100.0f;
     return s;
 }
+static const SwayState* SwayFind(void* inst) { for (int i = 0; i < g_nsway; ++i) if (g_sway[i].inst == inst) return &g_sway[i]; return nullptr; }
 static float Clampf(float v, float lo, float hi) { return v < lo ? lo : (v > hi ? hi : v); }
 
 static double NowSec() { return (double)GetTickCount64() * 0.001; }
@@ -750,6 +755,11 @@ static SwayState* StepSway(void* inst, const float* M) {
     s->newFrame = false;
     const ULONGLONG now = GetTickCount64();
     const float yaw = atan2f(M[1], M[0]);
+    {   // world 'down' in the cloak's local axes (the actor of a rider is tilted with the mount)
+        float d[3]; float len2 = 0.f;
+        for (int j = 0; j < 3; ++j) { const float r0 = M[j * 4], r1 = M[j * 4 + 1], r2 = M[j * 4 + 2]; float n2 = r0 * r0 + r1 * r1 + r2 * r2; if (n2 < 1e-6f) n2 = 1.f; d[j] = -r2 / n2; len2 += d[j] * d[j]; }
+        if (len2 > 1e-6f) { const float il = 1.f / sqrtf(len2); for (int j = 0; j < 3; ++j) s->down[j] = d[j] * il; s->haveDown = true; }
+    }
     if (!s->init) { s->init = true; s->last = now; s->pos[0] = M[12]; s->pos[1] = M[13]; s->pos[2] = M[14]; s->yaw = yaw; }
     const float dt = (float)(now - s->last) * 0.001f;
     if (dt < 0.004f) return s;                                         // several calls per frame share one step
@@ -858,6 +868,8 @@ static MeshInfo* InfoFor(void* mesh) {
 }
 thread_local MeshInfo*  t_mi = nullptr;                // mesh being drawn
 thread_local SwayState* t_pose = nullptr;              // spring state of the character being drawn
+thread_local float t_gdir[3] = { 0.f, 0.f, -1.f }; thread_local bool t_haveGdir = false;      // world 'down' in actor space for the character being drawn (previous frame)
+thread_local float t_rideSpeed = -1.f;                 // horizontal speed (units/s) of the character being drawn (from the previous frame's sway state); < 0 = unknown
 
 using DP_t      = HRESULT (STDMETHODCALLTYPE*)(IDirect3DDevice9*, D3DPRIMITIVETYPE, UINT, UINT);
 using DIP_t     = HRESULT (STDMETHODCALLTYPE*)(IDirect3DDevice9*, D3DPRIMITIVETYPE, INT, UINT, UINT, UINT, UINT);
@@ -1795,6 +1807,10 @@ static int EssResolveSeq(EssMantle* g, int fidx) {
 
 // evaluates the pose of this pawn for the current animation channel and blends it with the previous sequence
 
+// riding: the rider plays one fixed sequence whatever the mount does, so the action class comes from the speed of the character instead
+static bool IsRideSeq(const std::string& n) { return n.compare(0, 7, "strider") == 0 || n.compare(0, 6, "wyvern") == 0 || n.compare(0, 3, "pet") == 0 || n.compare(0, 4, "ride") == 0; }
+static int RideClassFor(float v) { return v < 25.f ? 0 : (v < 140.f ? 1 : 2); }          // idle / walk / run
+
 static int ClothWindClassFor(const ess::Anim&, const std::string& n) {            // 0 idle, 1 walk, 2 run, 3 sit, 4 attack
     auto sw = [&](const char* q) { return n.compare(0, strlen(q), q) == 0; };
     if (sw("atkwait") || sw("wait")) return 0;
@@ -1940,7 +1956,7 @@ static bool EssUpdate(EssMantle* g, void* bodyInst, void* pawnKey) {
         p->last = now;
     }
     EssApplyAttach(g, bodyInst, pawnKey, p->cur);
-    EssSwayUpdate(g, p, now, ClothWindClassFor(a, s.name));
+    EssSwayUpdate(g, p, now, (g_cfg.essenceRide && t_rideSpeed >= 0.f && IsRideSeq(s.name)) ? RideClassFor(t_rideSpeed) : ClothWindClassFor(a, s.name));
     t_essM = g; t_essP = p;
     return true;
 }
@@ -2389,7 +2405,7 @@ struct ClothPawn {
     int poseLogs = 0; int runLogs = 0; ULONGLONG lastRunLog = 0;
     int crestId = 0; ULONGLONG crestCheck = 0; int dumps = 0; ULONGLONG lastDump = 0;
     bool skelDump = false;
-    std::vector<float> partTarget; int idleFrames = 0; bool idleDump = false; const cloth::Set* wSet = nullptr; const ess::Collar* wCol = nullptr; float wAmount = -1.f;   // lateral stretch per row of the drawn cloth (collar and cloth meet without a step)
+    std::vector<float> partTarget; int idleFrames = 0; bool idleDump = false; int rideLogs = 0; ULONGLONG lastRideLog = 0; const cloth::Set* wSet = nullptr; const ess::Collar* wCol = nullptr; float wAmount = -1.f;   // lateral stretch per row of the drawn cloth (collar and cloth meet without a step)
     float Bref[9] = { 1, 0, 0, 0, 1, 0, 0, 0, 1 }; bool haveB = false; int bUA[2] = { -1, -1 }, bNeck = -1, bPel = -1;   // real torso frame (x = left, y = front, z = up) at the moment Rref was taken
     const EssMantle* gDrv = nullptr; const cloth::Set* gSet = nullptr; guide::Map gm; float guideK = 0.f;   // guide from the baked cape
     float posOut[256 * 3];                                // positions to draw
@@ -2570,25 +2586,42 @@ static bool EssPrepareCloth(int bodyIdx, int lookIdx, void* bodyInst, void* pawn
     }
 
     // wind from the action
-    int wc = 0;
-    if (ep->seq >= 0 && ep->seq < (int)drv->anim->seqs.size()) wc = ClothWindClass(drv->anim->seqs[(size_t)ep->seq].name);
+    int wc = 0; bool ride = false, rideSeat = false;
+    if (ep->seq >= 0 && ep->seq < (int)drv->anim->seqs.size()) {
+        const std::string& sn = drv->anim->seqs[(size_t)ep->seq].name;
+        wc = ClothWindClass(sn);
+        ride = g_cfg.essenceRide && t_rideSpeed >= 0.f && IsRideSeq(sn);
+        rideSeat = g_cfg.essenceRide && IsRideSeq(sn) && sn.compare(0, 6, "wyvern") != 0;       // strider / pets: the rider sits (the wyvern rider stands in its cage)
+    }
     float dt = cp->last ? (float)(now - cp->last) * 0.001f : 0.016f; if (dt < 0.f) dt = 0.f; if (dt > 0.1f) dt = 0.1f;
     cp->last = now;
-    const float target = g_cfg.essenceClothWind[wc];
+    float target = g_cfg.essenceClothWind[wc];
+    if (ride) {                                                                  // mounted: wind between the idle and the run value by the speed of the character
+        wc = RideClassFor(t_rideSpeed);
+        const float k = Clampf(t_rideSpeed / (g_cfg.essenceRideSpeed > 1.f ? g_cfg.essenceRideSpeed : 250.f), 0.f, 1.f);
+        target = g_cfg.essenceClothWind[0] + (g_cfg.essenceClothWind[2] - g_cfg.essenceClothWind[0]) * k;
+        if (g_cfg.debug && cp->rideLogs < 40 && now - cp->lastRideLog > 1000) { ++cp->rideLogs; cp->lastRideLog = now;
+            Log("essence ride: pawn %p seq '%s' speed %.0f u/s -> class %d, wind target %.1f (now %.1f), cloth pose resets so far %d", pawn, drv->anim->seqs[(size_t)ep->seq].name.c_str(), t_rideSpeed, wc, target, cp->wind, cp->st.resets); }
+    }
     cp->wind += (target - cp->wind) * (1.f - expf(-dt / 0.25f));
 
     {
         if (g_cfg.debug && wc == 0 && !cp->skelDump) { static volatile LONG nd = 0; cp->skelDump = true; if (InterlockedIncrement(&nd) <= 3) ClothDumpBones(bodyMesh, g_cal.attSrc == 0 ? subInst : bodyInst, pawn); }
     }
-    if (wc == 3 && g_cfg.essenceClothPelvisSit && nthigh == 2 && nc < 8) {                  // sitting: the hips are a collider too (the cloak lies on the seat behind them)
+    if ((wc == 3 || rideSeat) && g_cfg.essenceClothPelvisSit && nthigh == 2 && nc < 8) {                  // sitting: the hips are a collider too (the cloak lies on the seat behind them)
         for (int k = 0; k < 3; ++k) { caps[nc].a[k] = caps[thighIdx[0]].a[k]; caps[nc].b[k] = caps[thighIdx[1]].a[k]; }
         caps[nc].r = 6.5f; caps[nc].valid = true; caps[nc].backBias = true; ++nc;
     }
     cloth::Params pr;
     pr.gravity = g_cfg.essenceClothGravity; pr.wind[1] = cp->wind; pr.stiffness = g_cfg.essenceClothStiff; pr.damping = g_cfg.essenceClothDamp;
     pr.iterations = g_cfg.essenceClothIter; pr.skin = g_cfg.essenceClothSkin;
+    if (g_cfg.essenceRide && t_haveGdir && t_gdir[2] < -0.2f) {                // gravity is the WORLD down: a mounted character's actor is pitched / rolled
+        memcpy(pr.gdir, t_gdir, sizeof pr.gdir);
+        if (t_gdir[2] > -0.98f) pr.floorZ = -1e9f;                              // the actor-space floor plane means nothing when the actor is tilted
+        if (g_cfg.debug && ride && cp->rideLogs <= 40 && cp->lastRideLog == now) Log("essence ride: gravity in actor space %.2f %.2f %.2f", t_gdir[0], t_gdir[1], t_gdir[2]);
+    }
     if (g_cfg.essenceClothGuide[0] > 0.f || g_cfg.essenceClothGuide[1] > 0.f || g_cfg.essenceClothGuide[2] > 0.f || g_cfg.essenceClothGuide[3] > 0.f || g_cfg.essenceClothGuide[4] > 0.f) {
-        const float gt_ = g_cfg.essenceClothGuide[wc];
+        const float gt_ = ride ? 0.f : g_cfg.essenceClothGuide[wc];                 // the baked cape of the rider's fixed sequence would only fight the wind
         cp->guideK += (gt_ - cp->guideK) * (1.f - expf(-dt / 0.2f));
         if ((cp->gDrv != drv || cp->gSet != set) && drv->m && drv->anim) {
             cp->gDrv = drv; cp->gSet = set; cp->gm.ok = false;
@@ -3390,12 +3423,14 @@ void DrawCloak(const RenderCtx* c, void* self, void* actor, void* scene, void* p
         t_cloakBBoxOk = t_mi && t_mi->bbOk;
         if (t_cloakBBoxOk) memcpy(t_cloakBBox, t_mi->bb, sizeof t_cloakBBox);
         t_pose = nullptr;
+        t_rideSpeed = -1.f; t_haveGdir = false;
+        if (g_cfg.essenceRide) { const SwayState* ss = SwayFind(inst); if (ss && ss->init && ss->frames > 4 && GetTickCount64() - ss->last < 600) t_rideSpeed = sqrtf(ss->vs[0] * ss->vs[0] + ss->vs[1] * ss->vs[1]); if (ss && ss->haveDown && GetTickCount64() - ss->last < 600) { memcpy(t_gdir, ss->down, sizeof t_gdir); t_haveGdir = true; } }
         EssPrepare(c->cloak, self, pawn);
         pushState(ri, nullptr);
         t_inCloak = true;
         g_api.SubRender(inst, nullptr, actor, scene, c->lights, proj, ri);
         t_inCloak = false;
-        t_pose = nullptr; t_mi = nullptr; t_essM = nullptr; t_essP = nullptr; t_clothP = nullptr; t_wingM = nullptr; t_wingP = nullptr; t_fxP = nullptr;
+        t_pose = nullptr; t_mi = nullptr; t_essM = nullptr; t_essP = nullptr; t_clothP = nullptr; t_wingM = nullptr; t_wingP = nullptr; t_fxP = nullptr; t_rideSpeed = -1.f;
         if (c->idx >= 0 && c->idx <= 12) g_api.SetSubMeshIndex(inst, nullptr, c->idx);
         popState(ri, nullptr);
         *slotPtr = savedSlot;
@@ -3537,7 +3572,7 @@ void* __fastcall HkMeshToWorld(void* self, void* edx, float* ret, float scale) {
             if (g_cfg.vbDeform) {                                          // the pose / cloth state of this character, used when its vertex buffer is drawn
                 t_pose = StepSway(self, m);
                 if (g_cfg.vbMode == 2 && t_mi && t_mi->cm) ClothStep(t_pose, t_mi->cm);
-            }
+            } else if (g_cfg.essenceRide) StepSway(self, m);                  // only for the speed of the character
             alignas(16) float sw[16];
             if (ApplyMatSway(self, m, sw)) memcpy(m, sw, sizeof sw);
         } __except (EXCEPTION_EXECUTE_HANDLER) {

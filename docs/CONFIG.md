@@ -70,6 +70,8 @@ Values: numbers or `a,b,c` lists (game units; "left/front/up" in the effect offs
 | `EssenceLitBright` | `1` | lit: material colour (diffuse and ambient) |
 | `EssenceOffset` | `0,0,0` | shifts the mantle in actor space (units) |
 | `EssencePack` | `essence_capes.bin` | file name of the mantle pack (mesh + skeleton + baked animations + textures) |
+| `EssenceRide` | `1` | mounts: the rider plays a fixed 'strider' / 'wyvern' / 'pet' sequence, so the cloaks take their wind (walk / run) from the speed of the character |
+| `EssenceRideSpeed` | `250` | speed (units/s) at which a ridden cloak gets the full run wind |
 | `EssenceScale` | `1` | scale of the animated mantles |
 | `EssenceShowCarrier` | `0` | draw the old (rigid/cloth) carrier cloak too: it sits correctly on the back, a reference for EssenceOffset |
 | `EssenceSnug` | `0` | units the upper part of the mantle is pulled towards the chest (the lower part hangs free) |
